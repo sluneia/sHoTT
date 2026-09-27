@@ -166,13 +166,11 @@ As a corollary, non-dependent function types with `k`-truncated codomain are
   : is-contr (Σ (x : A) , B x)
   :=
   is-contr-equiv-is-contr'
-    ( Σ ( x : A) , B x)
-    ( B (first is-contr-A))
-    ( equiv-center-fiber-total-type-is-contr-base A is-contr-A B)
-    ( is-contr-fam (first is-contr-A))
-```
+  ( Σ ( x : A) , B x)
+  ( B (first is-contr-A))
+  ( equiv-center-fiber-total-type-is-contr-base A is-contr-A B)
+  ( is-contr-fam (first is-contr-A))
 
-```rzk
 #def is-trunc-total-type-fiberwise-is-trunc-is-trunc-base
   ( k : 𝕋)
   : ( A : U)
@@ -189,20 +187,21 @@ As a corollary, non-dependent function types with `k`-truncated codomain are
     | succ-𝕋 k' ih ⇒
       \ A B is-trunc-A is-trunc-fam s t →
         is-trunc-equiv-is-trunc
-          ( k')
-          ( s = t)
-          ( Eq-Σ A B s t)
-          ( extensionality-Σ A B s t)
-          ( ih
-            ( first s = first t)
-            ( \ p → transport A B (first s) (first t) p (second s) = second t)
-            ( is-trunc-A (first s) (first t))
-            ( \ p →
-                is-trunc-fam
-                ( first t)
-                ( transport A B (first s) (first t) p (second s))
-                ( second t))))
+        ( k')
+        ( s = t)
+        ( Eq-Σ A B s t)
+        ( extensionality-Σ A B s t)
+        ( ih
+          ( first s = first t)
+          ( \ p → transport A B (first s) (first t) p (second s) = second t)
+          ( is-trunc-A (first s) (first t))
+          ( \ p →
+              is-trunc-fam
+              ( first t)
+              ( transport A B (first s) (first t) p (second s))
+              ( second t))))
 ```
+
 ### k-truncated types are closed under retracts
 
 ```rzk
@@ -236,22 +235,22 @@ As a corollary, non-dependent function types with `k`-truncated codomain are
     ( ap A B x y s
     , ( \ q →
           triple-concat A x (r (s x)) (r (s y)) y
-            ( rev A (r (s x)) x (η x))
-            ( ap B A (s x) (s y) r q)
-            ( η y)
+          ( rev A (r (s x)) x (η x))
+          ( ap B A (s x) (s y) r q)
+          ( η y)
       , \ p →
           ind-path
-            ( A)
-            ( x)
-            ( \ y' p' →
-                triple-concat A x (r (s x)) (r (s y')) y'
-                  ( rev A (r (s x)) x (η x))
-                  ( ap B A (s x) (s y') r (ap A B x y' s p'))
-                  ( η y')
-                = p')
-            ( rev-refl-id-triple-concat A (r (s x)) x (η x))
-            ( y)
-            ( p)))
+          ( A)
+          ( x)
+          ( \ y' p' →
+              triple-concat A x (r (s x)) (r (s y')) y'
+                ( rev A (r (s x)) x (η x))
+                ( ap B A (s x) (s y') r (ap A B x y' s p'))
+                ( η y')
+              = p')
+          ( rev-refl-id-triple-concat A (r (s x)) x (η x))
+          ( y)
+          ( p)))
 
 #def is-trunc-retract-is-retract-of-trunc
   ( k : 𝕋)
@@ -265,8 +264,8 @@ As a corollary, non-dependent function types with `k`-truncated codomain are
       \ A B H is-contr-B →
        is-contr-retract-is-retract-of-contr A B H is-contr-B
     | succ-𝕋 _ ih ⇒
-       \ A B H is-trunc-B x y →
-         ih
+      \ A B H is-trunc-B x y →
+        ih
         ( x = y)
         ( first H x = first H y)
         ( is-retract-of-path-types-is-retract-of A B H x y)
@@ -291,7 +290,7 @@ As a corollary, non-dependent function types with `k`-truncated codomain are
       \ A → is-prop-is-contr-itself weakfunext A
     | succ-𝕋 k' ih ⇒
       \ A →
-      is-prop-fiberwise-prop2
+        is-prop-fiberwise-prop2
         ( funext)
         ( A)
         ( \ _ → A)
